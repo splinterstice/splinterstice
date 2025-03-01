@@ -1,0 +1,33 @@
+name: Mirror to Another Repo
+on:
+  push:
+    branches: [ '**' ]
+
+jobs:
+  mirror: https://git.disroot.org/githate/splinterstice
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # ensures full history is available
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "[email protected]"
+
+      - name: Set up SSH
+        if: ${{ secrets.MIRROR_SSH_KEY != '' }}
+        env:
+          SSH_KEY: ${{ secrets.MIRROR_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan yourmirrorhost.org >> ~/.ssh/known_hosts
+
+      - name: Push to Mirror
+        run: |
+          git remote add mirror "[email protected]:User/Repo.git"
+          git push --mirror mirror
