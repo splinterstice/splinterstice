@@ -1,0 +1,2 @@
+git remote add mirror git@git.disroot.org:githate/splinterstice.git
+git push --mirror mirror 
