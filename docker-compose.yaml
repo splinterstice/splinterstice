@@ -8,22 +8,55 @@ services:
       MYSQL_DATABASE: splinterstice_production
       MYSQL_USER: webuser
       MYSQL_PASSWORD: PSCh4ng3me!
+    networks:
+      - host
+  nginx:
+    image: nginx
+    restart: always
+    networks:
+      - tor_network
+      - host
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    volumes:
+      - "./nginx.conf:/etc/nginx/conf.d/default.conf"
+      - "./data/certbot/conf:/etc/letsencrypt"
+      - "./data/certbot/www:/var/www/certbot"
     ports:
-      - "3306:3306"
+      - "3002:80"
+  certbot-onion:
+    image: ghcr.io/splinterstice/certbot-onion
+    volumes:
+      - "./data/certbot/conf:/etc/letsencrypt"
+      - "./data/certbot/www:/var/www/certbot"
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  tor:
+    container_name: tor
+    build: .
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    stop_grace_period: 1m
+    networks:
+      - tor_network
   app:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - "./splinterstice:/app"
-    ports:
-      - "3001:3000"
     depends_on:
       - db
     links:
       - db
+    networks:
+      - host
     environment:
       DB_USER: root
       DB_PASSWORD: PSCh4ng3me!
       DB_NAME: splinterstice_production
       DB_HOST: db
-
+networks:
+  tor_network:
+  host:
