@@ -1,0 +1,24 @@
+AutomapHostsOnResolve 1
+ControlPort 9051
+ControlSocket /etc/tor/run/control
+ControlSocketsGroupWritable 1
+CookieAuthentication 1
+CookieAuthFile /etc/tor/run/control.authcookie
+CookieAuthFileGroupReadable 1
+DNSPort 5353
+DataDirectory /var/lib/tor
+ExitPolicy reject *:*
+Log notice stderr
+RunAsDaemon 0
+SocksPort 0.0.0.0:9050 IsolateDestAddr
+TransPort 0.0.0.0:9040
+User tor
+VirtualAddrNetworkIPv4 10.192.0.0/10
+# This folder contains the public and private keys of the hidden
+# service, probably provided by the host but can also be generated
+# by Tor if it's missing.
+HiddenServiceDir /var/lib/tor/hidden_service
+
+# Point the hidden service to a web server (in this case, the web
+# server container listening on port 80). See README.
+HiddenServicePort 80 172.16.128.2:80

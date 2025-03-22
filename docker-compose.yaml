@@ -9,54 +9,93 @@ services:
       MYSQL_USER: webuser
       MYSQL_PASSWORD: PSCh4ng3me!
     networks:
-      - host
+      host-net:
   nginx:
     image: nginx
     restart: always
-    networks:
-      - tor_network
-      - host
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     volumes:
       - "./nginx.conf:/etc/nginx/conf.d/default.conf"
       - "./data/certbot/conf:/etc/letsencrypt"
       - "./data/certbot/www:/var/www/certbot"
+      - "./tor-data/hidden_service/hostname:/etc/nginx/hostname.txt"
     ports:
       - "3002:80"
+      - "3003:433"
+    links:
+      - tor
+    depends_on:
+      tor:
+        condition: service_healthy
+    networks:
+      tor-net:
+        ipv4_address: 172.16.128.2
+      host-net:
   certbot-onion:
-    image: ghcr.io/splinterstice/certbot-onion
+    pull_policy: always
+    image: ghcr.io/splinterstice/certbot-onion:latest
     volumes:
       - "./data/certbot/conf:/etc/letsencrypt"
       - "./data/certbot/www:/var/www/certbot"
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-  tor:
-    container_name: tor
-    build: .
-    security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
-    cap_add:
-      - NET_BIND_SERVICE
-    stop_grace_period: 1m
+      - "${PWD}/chat3cct7awnfy3fslmiavdx7gs3xjvdl725atckf6kre4bdokfks6qd.onion:/certs/chat3cct7awnfy3fslmiavdx7gs3xjvdl725atckf6kre4bdokfks6qd.onion/"
+      - ${PWD}/torrc:/etc/tor/torrc:ro
+    #entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot --server https://acme.api.acmeforonions.org/directory certonly -d $(ls -1 /certs | grep onion | head -n 1) --non-interactive --authenticator onion-csr; sleep 12h & wait $${!}; done;'"
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot --server http://acme.api.acmeforonions.org/directory certonly -d $(ls -1 /certs | grep onion | head -n 1) --non-interactive --authenticator onion-csr --onion-csr-torrc-file /etc/tor/torrc; sleep 12h & wait $${!}; done;'"
+    depends_on:
+      tor:
+        condition: service_healthy
+    links:
+      - tor
     networks:
-      - tor_network
+      - tor-net
+    environment:
+      HTTPS_PROXY: "http://tor:8118"
+  tor:
+    image: registry.gitlab.com/skobkin/torproxy-obfs4
+#    image: jakejarvis/tor:latest
+    restart: always
+    volumes:
+      - ${PWD}/torrc:/etc/tor/torrc:ro
+      - ${PWD}/etc/tor/run:/etc/tor/run
+      - ${PWD}/tor-data:/var/lib/tor/
+    healthcheck:
+      test: ["CMD", "curl", "-Lx", "http://tor:8118", "https://jsonip.com"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      tor-net:
+    stop_grace_period: 15s 
+    environment:
+      SERVICE: "443;nginx:443"
+      USERID: 1000
+      GROUPID: 100
   app:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - "./splinterstice:/app"
+    ports:
+      - "3001:3000"
     depends_on:
       - db
     links:
       - db
     networks:
-      - host
+      host-net:
     environment:
       DB_USER: root
       DB_PASSWORD: PSCh4ng3me!
       DB_NAME: splinterstice_production
       DB_HOST: db
 networks:
-  tor_network:
-  host:
+  tor-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.0.0/16"
+  host-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.15.0.0/16" 
