@@ -8,6 +8,17 @@ services:
       MYSQL_DATABASE: splinterstice_production
       MYSQL_USER: webuser
       MYSQL_PASSWORD: PSCh4ng3me!
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    networks:
+      host-net:
+  redis:
+    image: redis
+    restart: always
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
     networks:
       host-net:
   nginx:
@@ -27,6 +38,8 @@ services:
     depends_on:
       tor:
         condition: service_healthy
+      app:
+        condition: service_healthy
     networks:
       tor-net:
         ipv4_address: 172.16.128.2
@@ -39,7 +52,6 @@ services:
       - "./data/certbot/www:/var/www/certbot"
       - "${PWD}/chat3cct7awnfy3fslmiavdx7gs3xjvdl725atckf6kre4bdokfks6qd.onion:/certs/chat3cct7awnfy3fslmiavdx7gs3xjvdl725atckf6kre4bdokfks6qd.onion/"
       - ${PWD}/torrc:/etc/tor/torrc:ro
-    #entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot --server https://acme.api.acmeforonions.org/directory certonly -d $(ls -1 /certs | grep onion | head -n 1) --non-interactive --authenticator onion-csr; sleep 12h & wait $${!}; done;'"
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot --server http://acme.api.acmeforonions.org/directory certonly -d $(ls -1 /certs | grep onion | head -n 1) --non-interactive --authenticator onion-csr --onion-csr-torrc-file /etc/tor/torrc; sleep 12h & wait $${!}; done;'"
     depends_on:
       tor:
@@ -73,21 +85,33 @@ services:
   app:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    entrypoint: ["/app/app-entrypoint.sh"]
     volumes:
       - "./splinterstice:/app"
+      - "./app-entrypoint.sh:/app/app-entrypoint.sh"
     ports:
       - "3001:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     links:
       - db
-    networks:
-      host-net:
+      - redis
     environment:
+      REDIS_URL: redis:6379
       DB_USER: root
       DB_PASSWORD: PSCh4ng3me!
       DB_NAME: splinterstice_production
       DB_HOST: db
+    healthcheck:
+      test: ["CMD", "curl", "-L", "http://app:3000/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      host-net:
 networks:
   tor-net:
     ipam:

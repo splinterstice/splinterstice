@@ -4,3 +4,14 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+task :server do
+  sh 'REDIS_URL="localhost:6379" DB_NAME="splinterstice_development" DB_HOST="127.0.0.1" DB_USER="webuser" DB_PASSWORD="PSCh4ng3me!" bin/rails server'
+end
+task :migrate do
+  sh 'REDIS_URL="localhost:6379" DB_NAME="splinterstice_development" DB_HOST="127.0.0.1" DB_USER="webuser" DB_PASSWORD="PSCh4ng3me!" bin/rails db:migrate'
+end
+task:console do
+  sh 'REDIS_URL="localhost:6379" DB_NAME="splinterstice_development" DB_HOST="127.0.0.1" DB_USER="webuser" DB_PASSWORD="PSCh4ng3me!" bin/rails console'
+end
+

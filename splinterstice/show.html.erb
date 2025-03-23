@@ -1,0 +1,13 @@
+<div class="container">
+  <h5> Hi <%= @current_user.username %> </h5>
+  <h4> Users </h4>
+  <%= turbo_stream_from "users" %>
+  <div id="users">
+    <%= render @users %>
+  </div>
+  <h4> Rooms </h4>
+  <%= turbo_stream_from "rooms" %>
+  <div id="rooms">
+    <%= render @rooms %>
+  </div>
+</div>

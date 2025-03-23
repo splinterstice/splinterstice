@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-2">
+    <h5> Hi <%= @current_user.username %> </h5>
+    <%= link_to 'Sign Out', signout_path, :method => :delete %>
+    <h4> Users </h4>
+    <div>
+      <%= turbo_stream_from "users" %>
+      <div id="users">
+        <%= render @users %>
+      </div>
+    </div>
+    <h4> Rooms </h4>
+    <%= render partial: "layouts/new_room_form" %>
+    <div>
+      <%= turbo_stream_from "rooms" %>
+      <div id="rooms">
+        <%= render @rooms %>
+     </div>
+    </div>
+  </div>
+  <div class="col-md-10 bg-dark">
+    The chat box stays here
+  </div>
+  <div class="col-md-10 bg-dark text-light">
+    <% if @single_room %>
+      <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+      <%= turbo_stream_from @single_room %>
+      <div id="messages">
+        <%= render @messages %>
+      </div>
+      <%= render partial: 'layouts/new_message_form' %>
+    <% end %>
+  </div>
+</div>
