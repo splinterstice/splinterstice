@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get "register/index"
   get "rooms/index"
+  post "rooms/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -13,11 +15,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   #
+  # Ping
+  get "/ping", to: 'ping#pong', as: 'ping'
   # Signin
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
   get "/signout", to: "sessions#destroy"
-
+  get "/register", to: "register#index"
+  post "/register", to: "register#create"
   # Room
   resources :rooms do
     resources :messages

@@ -1,5 +1,6 @@
 <%= form_for (:session) do |f| %>
-  <%= f.label :username, 'Enter your username' %>
-  <%= f.text_field :username, autocomplete: 'off' %>
+  <p><%= f.label :username, 'Enter your username' %>
+<%= f.text_field :username, autocomplete: 'off' %></p>
   <%= f.submit 'Sign in' %>
+  <p><%= link_to 'Register', '/register', :method => "get" %></p>
 <% end%>

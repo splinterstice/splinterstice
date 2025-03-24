@@ -1,0 +1,5 @@
+<%= form_with(model: @user || false, remote: true, url: 'register', class: "d-flex" ) do |f| %>
+<%= f.label :name, 'Enter a new username' %>
+<%= f.text_field :username, class: "form-control", autocomplete: 'off' %>
+<%= f.submit(:value => 'Register') %>
+<% end %>
