@@ -29,4 +29,28 @@ Rails.application.routes.draw do
   end
   resources :users
   root "rooms#index"
+
+  namespace :api do
+    namespace :v1 do
+      # Direct Messages
+      resources :messages, only: [:index, :create]
+      
+      # Friends Management (for sending friend requests and removal)
+      resources :friends, only: [:create, :destroy]
+
+      # Chat Rooms: join, leave, and send messages
+      post 'chat_rooms/join', to: 'chat_rooms#join'
+      post 'chat_rooms/leave', to: 'chat_rooms#leave'
+      post 'chat_rooms/message', to: 'chat_rooms#message'
+
+      # Administrative Endpoints
+      namespace :admin do
+        post 'invite', to: 'admin#invite'
+        post 'promote', to: 'admin#promote'
+        post 'ban', to: 'admin#ban'
+        put 'edit_user', to: 'admin#edit_user'
+        post 'reset_keys', to: 'admin#reset_keys'
+      end
+    end
+  end
 end

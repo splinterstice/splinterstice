@@ -1,0 +1,92 @@
+<%= render 'layouts/base' %>
+
+<% content_for :content do %>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 border-end p-3">
+            <h5>Online Members</h5>
+            <ul class="list-group">
+                <% @members.each do |member| %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= member.name %>
+                        <span class="badge bg-<%= member.online ? 'success' : 'secondary' %>">●</span>
+                    </li>
+                <% end %>
+            </ul>
+            
+            <!-- Color Scheme Selector -->
+            <div class="mt-3">
+                <label for="colorScheme" class="form-label">Color Scheme</label>
+                <select id="colorScheme" class="form-select">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="blue">Blue</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Chat Pane -->
+        <div class="col-md-9">
+            <ul class="nav nav-tabs" id="chatTabs">
+                <% @rooms.each do |room| %>
+                    <li class="nav-item">
+                        <a class="nav-link <%= 'active' if @rooms.first == room %>" data-bs-toggle="tab" href="#room-<%= room.id %>">#<%= room.name %></a>
+                    </li>
+                <% end %>
+                <% @private_chats.each do |pm| %>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#pm-<%= pm.id %>">@<%= pm.user %></a>
+                    </li>
+                <% end %>
+            </ul>
+            
+            <div class="tab-content p-3 border border-top-0">
+                <% @rooms.each do |room| %>
+                    <div class="tab-pane fade <%= 'show active' if @rooms.first == room %>" id="room-<%= room.id %>">
+                        <div class="card">
+                            <div class="card-body overflow-auto" style="max-height: 400px;" data-controller="messages" data-room-id="<%= room.id %>">
+                                <% room.messages.each do |message| %>
+                                    <p><strong><%= message.user %>:</strong> <%= message.text %></p>
+                                <% end %>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <%= form_with url: send_message_path, method: :post, class: "w-100 me-2", data: { turbo: "true" } do %>
+                                    <%= hidden_field_tag :room_id, room.id %>
+                                    <div class="input-group">
+                                        <%= text_field_tag :message, nil, class: "form-control", placeholder: "Type a message..." %>
+                                        <%= submit_tag "Send", class: "btn btn-primary" %>
+                                    </div>
+                                <% end %>
+                                <%= button_to "Clear History", clear_history_path, method: :post, class: "btn btn-danger", params: { room_id: room.id } %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                <% @private_chats.each do |pm| %>
+                    <div class="tab-pane fade" id="pm-<%= pm.id %>">
+                        <div class="card">
+                            <div class="card-body overflow-auto" style="max-height: 400px;">
+                                <% pm.messages.each do |message| %>
+                                    <p><strong><%= message.user %>:</strong> <%= message.text %></p>
+                                <% end %>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <%= form_with url: send_pm_path, method: :post, class: "w-100 me-2", data: { turbo: "true" } do %>
+                                    <%= hidden_field_tag :pm_id, pm.id %>
+                                    <div class="input-group">
+                                        <%= text_field_tag :message, nil, class: "form-control", placeholder: "Type a message..." %>
+                                        <%= submit_tag "Send", class: "btn btn-primary" %>
+                                    </div>
+                                <% end %>
+                                <%= button_to "Clear History", clear_pm_history_path, method: :post, class: "btn btn-danger", params: { pm_id: pm.id } %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
+
