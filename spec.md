@@ -1,4 +1,4 @@
-1. 1.	GUI and Front-end:
+1.	GUI and Front-end:
 ⦁	Web Client Model: Utilizes a combination of custom implementations found in the source code, including JavaScript for rendering and interactive elements.
 ⦁	2.5D GUI: Create a cohesive blend of 2D and 2.5D interfaces, allowing users to switch between traditional chat views and 2.5D visualizations, depending on preference and need.
 ⦁	Interactable 2.5D Objects: Through developer-created plugins, users can interact with 2.5D objects within the "subchats," such as playing videos on 2.5D-rendered pop-up screens.
@@ -18,7 +18,7 @@
 ⦁	2.5D Tabs: Each tab represents a distinct homespace, channel, or conversation and has a subtle depth effect, providing a more tactile and visually engaging experience.
 ⦁	Interactive Hover Effects: Hovering over a tab will show a slight 3D shift or preview of the content, adding to the dynamic 2.5D visual experience.
 
-2. 2.	Features for Secure Accessibility and Encryption:
+2.	Features for Secure Accessibility and Encryption:
 ⦁	Random URL Generation Functionality: A random URL will automatically generate every time the user switches to another tab, ensuring the URL cannot be copied and pasted or linked to others. The page automatically refreshes to regenerate a different string of numbers for the URL.
 ⦁	Access Through Name Only: The platform can only be found if the name is known, publicized exclusively on Tor and I2P.
 ⦁	Individualized Key-Codes: Upon registration on the .onion or eepsite page, users receive individually assigned key-codes for accounts. These key-codes allow access to the project from anywhere online, functioning similarly to a cryptowallet.
@@ -29,7 +29,7 @@
 ⦁	Private vs. Public Homespaces: Controls in "homespace" settings for ensuring that homespaces can be private or public, with optional media Security Controls for ensuring that media of all sorts can be shared privately or publicly within a homespace, depending on if that individual homespace's creator decides to pre-set that homespace as being public or private.
 ⦁	Desktop Console Router: Upon completing the registration for your Splinterstice account, the desktop "WAPP" that you're given a link to download once you complete registering for your account on the .onion site and eepsite, is your own personal console router (that's supposed to run in the background) for you to store a copy of your individualized "key-code" that's also automatically generated for you and subsequently stored within the console router, for you to then to copy and paste said individualized "key-code" into the URL of any browser of your choosing to access the actual Splinterstice(web-based client) through the Splinterstice account you've created upon having registered for one.
 
-3. 3.	Guild Topology:
+3.	Guild Topology:
 ⦁	Inter-Socket Communication: Highly coordinated communication protocols would be crucial, which might involve RESTful APIs, WebSocket connections, and or other TCP/UDP-based communication protocols.
 ⦁	Self-Sufficiency: Each socket endpoint should be designed to operate independently, ensuring the network's functionality even if some endpoints are down.
 ⦁	Adaptability: The system needs to be capable of dynamically adjusting to changes, such as varying data loads or the addition/removal of socket endpoints.
@@ -37,7 +37,7 @@
 ⦁	Scalability: The addition of new socket endpoints should be seamless, possibly facilitated by containerization and orchestration tools like Docker and Kubernetes.
 ⦁	Auto-enabled Sockets: Every time someone makes a "homespace" on Splinterstice, a dedicated set cluster of a few network sockets is automatically generated and enabled for that specific "homespace". Meaning that if anything ever happens to the main device that Splinterstice itself is hosted on, to make it where it's not up or whatever else, then at least the "homespaces" won't be affected by it. This is to be in accordance, to the aforementioned features of the Guild Network Topology, that have been listed above.
 
-4. 4.	Mass Customization and Self-Hosting:
+4.	Mass Customization and Self-Hosting:
 ⦁	No Third-Party Dependency Nor Monetization: Enables mass customization of standard web-client's front-end.
 ⦁	Self-Hosting Option: There should be an option in the settings of any user's own "homespace", to host their "homespace" that they've made via clicking the "+" icon for creating your own "homespace" within its settings, on their own virtualized/emulated server and or physical device. This is similar to the idea of self-hosting for a Matrix or XXMP homeserver.
 ⦁	Dynamic 2.5D Environment Customization: A feature that allows users to personalize their front-end for the standard web-client, through an in-built customization toolkit. It combines the extensible nature of the existing architecture with user-friendly customization, creating a pseudo-3D effect for their UI.
@@ -48,7 +48,7 @@
 ⦁	Customizable Tab Design: Users can personalize the appearance of tabs by adjusting colors, icons, and or effects to align with their preferences or homespace themes.
 ⦁	Real-Time Translation Option: An option leveraging a real-time translation feature, allowing for instant translation of messages for international collaboration. Paired with an extensive language list for choosing which language to translate it to.
 
-5. 5.	Ethical Guidelines and Compliance:
+5.	Ethical Guidelines and Compliance:
 ⦁	Freedom of Speech/Expression Policy: You can technically say and post whatever you want to, so long as it doesn't explicitly violate Splinterstice's ToS, cause keep in mind that Splinterstice is still a freedom of speech/expression absolutist platform, in the end of the day.
 ⦁	ToS: By registering for your own Splinterstice account, you thereby agree to services being demonstrably cut off if you (for whatever reason(s)) decide to cross the line into partaking in explicitly illegal acts through Splinterstice, which are the distribution/consumption of CSAM, the distribution/consuption of pornography material involving animals, the the distribution/consuption of pornography material involving corpses, using Splinterstice as a storefront to sell to/scam others, running criminal operations, actively planning physical attacks against certain individuals/groups, and doxing others.
 ⦁	Automod bot: This bot only reacts to users who have explicitly violated the ToS, for if they do so, the bot shall automatically cut off services for them and generate a report of their specific violation as a dedicated file in the IPFS for being able to forward over to their local authorities through whatever means possible.
