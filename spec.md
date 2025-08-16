@@ -50,7 +50,7 @@
 
 ⦁	Secure 2.5D GUI Alignment: Align the 2.5D visualization features with the strong privacy and security principles of Splinterstice, ensuring that the 2.5D environment does not compromise user data or communication integrity.
 
-⦁	Network Independence via IPFS: Instead of being hosted through a "middleman"(VPS, cloud, dedicated server, data center/database, the likes), Splinterstice's official release is to be deployed from the IPFS, not solely relying on Tor or I2P network nodes.
+⦁	Network Independence/Serverless via IPFS: Instead of being hosted through a "middleman"(VPS, cloud, dedicated server, data center/database, the likes), Splinterstice's official release is to be deployed from the IPFS, not solely relying on Tor or I2P network nodes.
 
 ⦁	Private vs. Public Homespaces: Controls in "homespace" settings for ensuring that homespaces can be private or public, with optional media Security Controls for ensuring that media of all sorts can be shared privately or publicly within a homespace, depending on if that individual homespace's creator decides to pre-set that homespace as being public or private.
 
