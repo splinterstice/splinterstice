@@ -1,7 +1,11 @@
 1.	GUI and Front-end:
+
 ⦁	Web Client Model: Utilizes a combination of custom implementations found in the source code, including JavaScript for rendering and interactive elements.
+
 ⦁	2.5D GUI: Create a cohesive blend of 2D and 2.5D interfaces, allowing users to switch between traditional chat views and 2.5D visualizations, depending on preference and need.
+
 ⦁	Interactable 2.5D Objects: Through developer-created plugins, users can interact with 2.5D objects within the "subchats," such as playing videos on 2.5D-rendered pop-up screens.
+
 ⦁	Adaptive Layout: The 2.5D display adapts to various devices and screen sizes, maintaining the depth effect across platforms.
 ⦁	Subchat: Chat rooms that you can make in your own "homespace."
 ⦁	Homespace: Splinterstice's very own equivalent of both a Discord "server"/Matrix space and a Matrix/XMPP homeserver, rolled into one.
