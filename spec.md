@@ -50,9 +50,9 @@
 
 ⦁	Secure 2.5D GUI Alignment: Align the 2.5D visualization features with the strong privacy and security principles of Splinterstice, ensuring that the 2.5D environment does not compromise user data or communication integrity.
 
-⦁	Network Independence/Serverless via IPFS: Instead of being hosted through a "middleman"(VPS, cloud, dedicated server, data center/database, the likes), Splinterstice's official release is to be deployed from the IPFS, not solely relying on Tor or I2P network nodes.
-
 ⦁	Private vs. Public Homespaces: Controls in "homespace" settings for ensuring that homespaces can be private or public, with optional media Security Controls for ensuring that media of all sorts can be shared privately or publicly within a homespace, depending on if that individual homespace's creator decides to pre-set that homespace as being public or private.
+
+⦁	Network Independence/Serverless via IPFS: Instead of being hosted through more traditinal means (VPS, cloud, dedicated server, data center/database, the likes), Splinterstice's official release is to be deployed from from Openmesh as its main node through IPFS. Given that IPFS is what shall be the de facto "middleman" for connecting Splinterstice's back-end to all of its nodes, including not only nodes of every currently up and runnig darknet, but also its different backup nodes, which are just free teirs of various different free teirs for different cloud services, for having extra backups of Splinterstice's data in case anything goes wrong.
 
 ⦁	Desktop Console Router: Upon completing the registration for your Splinterstice account, the desktop "WAPP" that you're given a link to download once you complete registering for your account on the .onion site and eepsite, is your own personal console router (that's supposed to run in the background) for you to store a copy of your individualized "key-code" that's also automatically generated for you and subsequently stored within the console router, for you to then to copy and paste said individualized "key-code" into the URL of any browser of your choosing to access the actual Splinterstice(web-based client) through the Splinterstice account you've created upon having registered for one.
 
@@ -70,7 +70,7 @@
 
 ⦁	Auto-enabled Sockets: Every time someone makes a "homespace" on Splinterstice, a dedicated set cluster of a few network sockets is automatically generated and enabled for that specific "homespace". Meaning that if anything ever happens to the main device that Splinterstice itself is hosted on, to make it where it's not up or whatever else, then at least the "homespaces" won't be affected by it. This is to be in accordance, to the aforementioned features of the Guild Network Topology, that have been listed above.
 
-4.	Mass Customization and Self-Hosting:
+4.	Mass Customization and Self-Hosting Options For Users:
 
 ⦁	No Third-Party Dependency Nor Monetization: Enables mass customization of standard web-client's front-end.
 
@@ -99,4 +99,3 @@
 ⦁	Automod bot: This bot only reacts to users who have explicitly violated the ToS, for if they do so, the bot shall automatically cut off services for them and generate a report of their specific violation as a dedicated file in the IPFS for being able to forward over to their local authorities through whatever means possible.
 
 ⦁	Hybrid Expert System: This backend component that power's Splinterstice automod bot distinguishes explicit ToS violations from protected edge-case discourse through legally-compliant multi-threat detection i.e PhotoDNA hashing for CSAM without illegal training data, proxy-trained CNNs combining adult content detection with age estimation models, fraud detection via transaction pattern analysis and known scam phrase databases, criminal operation identification through communication graph analysis and temporal clustering of suspicious keywords, violence threat assessment using transfer-learned models trained on public threat assessment datasets combined with escalation pattern recognition, doxxing detection through PII extraction with cross-reference validation against public records, all feeding into XGBoost classifiers with violation-specific confidence thresholds where clear violations (>0.85) trigger automated enforcement, ambiguous cases (0.3-0.7) undergo transformer-based contextual analysis examining surrounding discussion intent, and edge cases with conflicting signals escalated to human review for achieving comprehensive ToS enforcement without illegal training data through compositional signal analysis and behavioral pattern recognition rather than direct prohibited content exposure.and doxing others.
-- automod bot: This bot only reacts to users who's explicitly volated the ToS, as if they do so, then the bot shall automatically cut off services for them and automatically generate a report of their specific violation for Splinterstice's host.
