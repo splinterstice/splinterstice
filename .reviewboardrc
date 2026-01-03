@@ -1,5 +1,0 @@
-REVIEWBOARD_URL = "https://cr.splinterstice.celestium.life"
-REPOSITORY = "Splinterstice Main Repo"
-REPOSITORY_TYPE = "git"
-BRANCH = "main"
-LAND_DEST_BRANCH = "main"
