@@ -38,6 +38,8 @@
    ○​ **Plugin Devs:** Development of interactable 2.5D objects and
    multimedia preview handlers.
 
+..
+
    2. Risks
 
 +-----------------+-----------------+-----------------+-----------------+
