@@ -4,8 +4,8 @@
    | **Project Status:** Active Development​
    | **Target Environment:** Tor (.onion) and I2P (eepsite)
 
-
 ..
+
    1. Project Roles and Governance
 
    To ensure the successful delivery of Splinterstice as a
@@ -39,8 +39,6 @@
 
    ○​ **Plugin Devs:** Development of interactable 2.5D objects and
    multimedia preview handlers.
-
-..
 
    2. Risks
 
