@@ -40,6 +40,8 @@
    ○​ **Plugin Devs:** Development of interactable 2.5D objects and
    multimedia preview handlers.
 
+..
+
    2. Risks
 
 +-----------------+-----------------+-----------------+-----------------+
@@ -119,6 +121,8 @@
    JavaScript ES6+ features and CSS depth effects required for 2.5D
    rendering.
 
+..
+
    4. Issues
 
 +-----------------+-----------------+-----------------+-----------------+
@@ -180,6 +184,8 @@
    ●​ **Docker & Kubernetes:** Necessary for the automated orchestration
    of socket clusters and network scalability.
 
+..
+
    6. Milestones
 
 +-----------------------+-----------------------+-----------------------+
@@ -190,11 +196,6 @@
 |                       |      nodes,           |                       |
 |                       |      implementation   |                       |
 |                       |      of SDH           |                       |
-+-----------------------+-----------------------+-----------------------+
-
-+-----------------------+-----------------------+-----------------------+
-|    **Phase**          |    **Deliverable**    |    **Estimate**       |
-+=======================+=======================+=======================+
 |                       |      protocol, and    |                       |
 |                       |      E2EE             |                       |
 |                       |      subsystem for    |                       |
@@ -270,6 +271,8 @@
    identify vulnerabilities in the E2EE subsystem and key-code
    generation logic.
 
+..
+
    6.2 Phase 6 Detailed Entry: Final Governance & Launch
 
    ●​ **Hybrid Expert System Activation:** Full deployment of the
@@ -292,6 +295,8 @@
 
    ●​ **Final Publicization:** Official release of platform addresses on
    Tor and I2P directories and network independence verification.
+
+..
 
    7. Notes on Estimates
 
