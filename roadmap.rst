@@ -10,7 +10,7 @@
    decentralized, 2.5D hidden service, the following organizational
    structure is established:
 
-|  ●​ **General Project Manager (GMP) & Head Developer:** Lead
+   ●​ **General Project Manager (GMP) & Head Developer:** Lead
    architect and final authority for the Splinterstice codebase.
    Responsible for architectural oversight of the 2.5D engine and Ruby
    on Rails API, security auditing of E2EE subsystems, core backend
@@ -36,7 +36,7 @@
    WAPP hardening.
 
    ○​ **Plugin Devs:** Development of interactable 2.5D objects and
-|  multimedia preview handlers.
+   multimedia preview handlers.
 
 ..
 
