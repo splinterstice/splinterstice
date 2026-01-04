@@ -1,6 +1,4 @@
-**Splinterstice**
-
-**Roadmap**
+**Splinterstice Roadmap**
 
    | **Date of Publication:** 01/03/2026​
    | **Project Status:** Active Development​
