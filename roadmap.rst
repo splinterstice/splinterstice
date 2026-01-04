@@ -1,8 +1,8 @@
 **Splinterstice Roadmap**
 
-   | **Date of Publication:** 01/03/2026​
-   | **Project Status:** Active Development​
-   | **Target Environment:** Tor (.onion) and I2P (eepsite)
+     **Date of Publication:** 01/03/2026​
+     **Project Status:** Active Development​
+     **Target Environment:** Tor (.onion) and I2P (eepsite)
 
    1. Project Roles and Governance
 
