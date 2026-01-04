@@ -10,12 +10,12 @@
    decentralized, 2.5D hidden service, the following organizational
    structure is established:
 
-   | ●​ **General Project Manager (GMP) & Head Developer:** Lead
-     architect and final authority for the Splinterstice codebase.
-     Responsible for architectural oversight of the 2.5D engine and Ruby
-     on Rails API, security auditing of E2EE subsystems, core backend
-   | development (socket clustering/IPFS), and release management of the
-     master branch on Openmesh.
+|  ●​ **General Project Manager (GMP) & Head Developer:** Lead
+   architect and final authority for the Splinterstice codebase.
+   Responsible for architectural oversight of the 2.5D engine and Ruby
+   on Rails API, security auditing of E2EE subsystems, core backend
+   development (socket clustering/IPFS), and release management of the
+   master branch on Openmesh.
 
    ●​ **Project Organizer:** Operational lead assisting the GMP.
    Responsible for documentation management (spec/roadmap), community
@@ -35,7 +35,7 @@
    ○​ **Security:** E2EE refinement, Tor/I2P tunnel optimization, and
    WAPP hardening.
 
-   ○​ **Plugin Devs:** Development of interactable 2.5D objects and
+|  ○​ **Plugin Devs:** Development of interactable 2.5D objects and
    multimedia preview handlers.
 
 ..
@@ -46,47 +46,47 @@
 |    **Title**    |                 |    **Impact**   |                 |
 |                 | **Description** |                 |  **Mitigation** |
 +=================+=================+=================+=================+
-|    **Latency    |    | High       |    | High:      |    | Implement  |
-|    Jitter**     |      latency    |      Real-time  |                 |
-|                 |      inherent   |      2.5D       |     client-side |
-|                 |      in Tor/I2P |                 |                 |
-|                 |      routing    |    interactions |   interpolation |
-|                 |    | networks.  |      and        |      for        |
-|                 |                 |    | socket     |    | animations |
-|                 |                 |      stability  |      and        |
-|                 |                 |      may        |    | aggressive |
-|                 |                 |      degrade.   |                 |
-|                 |                 |                 |  | Redis-backed |
-|                 |                 |                 |    | ephemeral  |
-|                 |                 |                 |      storage.   |
+|    **Latency    |      High       |      High:      |    Implement    |
+|    Jitter**     |      latency    | Real-time 2.5D  |   client-side   |
+|                 |      inherent   | interactions and|  interpolation  |
+|                 |      in Tor/I2P | and socket      |  for animations |
+|                 |      routing    | stability may   |  and aggressive |
+|                 |      networks.  | degrade.        |   Redis-backed  |
+|                 |                 |                 |    ephemeral    |
+|                 |                 |                 |     storage.    |
+|                 |                 |                 |                 |
+|                 |                 |                 |                 |
+|                 |                 |                 |                 |
+|                 |                 |                 |                 |
+|                 |                 |                 |                 |
 +-----------------+-----------------+-----------------+-----------------+
-|    **Data       |    | IPFS files |    Medium:      |    | Utilize    |
-|                 |      may        |    User-shared  |      the        |
-|   Persistence** |    | become     |    media or     |      "Backup    |
-|                 |      "unpinned" |    Homespace    |    | Node"      |
+|    **Data       |      IPFS files |    Medium:      |      Utilize    |
+| Persistence**   |      may        |    User-shared  |      the        |
+|                 |      become     |    media or     |      "Backup    |
+|                 |      "unpinned" |    Homespace    |      Node"      |
 |                 |      if backup  |    data could   |      system     |
 |                 |      nodes are  |    be lost.     |      across     |
-|                 |                 |                 |      multiple   |
-|                 | | insufficient. |                 |      free-tier  |
-|                 |                 |                 |    | cloud      |
+|                 |   insufficient. |                 |      multiple   |
+|                 |                 |                 |      free-tier  |
+|                 |                 |                 |      cloud      |
 |                 |                 |                 |      services   |
 |                 |                 |                 |      to         |
-|                 |                 |                 |    | ensure     |
-|                 |                 |                 |                 |
+|                 |                 |                 |     ensure      |
 |                 |                 |                 |     redundancy. |
+|                 |                 |                 |                 |
 +-----------------+-----------------+-----------------+-----------------+
 |    **ToS False  |    | Hybrid     |    | Medium:    |    | Use        |
 |    Positives**  |      Expert     |                 |      XGBoost    |
 |                 |      System     |  | Unauthorized |                 |
-|                 |      flags      |      service    |   | classifiers |
+|                 |      flags      |      service    |     classifiers |
 |                 |      edge-case  |      cutoff for |      with high  |
 |                 |    | discourse  |                 |      thresholds |
 |                 |      as         |     law-abiding |      (>0.85);   |
 |                 |      illegal.   |      users.     |      escalate   |
 |                 |                 |                 |      0.3-0.7    |
-|                 |                 |                 |    | cases to   |
+|                 |                 |                 |      cases to   |
 |                 |                 |                 |      human      |
-|                 |                 |                 |    | review.    |
+|                 |                 |                 |      review.    |
 +-----------------+-----------------+-----------------+-----------------+
 |    **De-        |    Potential    |    Critical:    |    | Use        |
 | anonymization** |    leaks at the |    Compromise   |      Dedicated  |
