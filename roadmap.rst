@@ -75,31 +75,31 @@
 |                 |                 |                 |     redundancy. |
 |                 |                 |                 |                 |
 +-----------------+-----------------+-----------------+-----------------+
-|    **ToS False  |    | Hybrid     |    | Medium:    |    | Use        |
-|    Positives**  |      Expert     |                 |      XGBoost    |
-|                 |      System     |  | Unauthorized |                 |
-|                 |      flags      |      service    |     classifiers |
-|                 |      edge-case  |      cutoff for |      with high  |
-|                 |    | discourse  |                 |      thresholds |
-|                 |      as         |     law-abiding |      (>0.85);   |
-|                 |      illegal.   |      users.     |      escalate   |
-|                 |                 |                 |      0.3-0.7    |
+|    **ToS False  |      Hybrid     |      Medium:    |      Use        |
+|    Positives**  |      Expert     |   Unauthorized  |      XGBoost    |
+|                 |      System     |    service      |    classifiers  |
+|                 |      flags      |   cutoff for    |     with high   |
+|                 |      edge-case  | non-law-abiding |     thresholds  |
+|                 |      discourse  | users.          |      (>0.85);   |
+|                 |      as         |                 |      escalate   |
+|                 |      illegal.   |                 |      0.3-0.7    |
 |                 |                 |                 |      cases to   |
 |                 |                 |                 |      human      |
 |                 |                 |                 |      review.    |
+|                 |                 |                 |                 |
 +-----------------+-----------------+-----------------+-----------------+
-|    **De-        |    Potential    |    Critical:    |    | Use        |
+|    **De-        |    Potential    |    Critical:    |      Use        |
 | anonymization** |    leaks at the |    Compromise   |      Dedicated  |
 |                 |    exit node    |    of user      |      E2EE       |
 |                 |    level or via |    privacy and  |      Subsystem  |
 |                 |    metadata.    |    platform     |      to hide    |
-|                 |                 |    security.    |    | exit nodes |
+|                 |                 |    security.    |      exit nodes |
 |                 |                 |                 |      and        |
-|                 |                 |                 |    | regenerate |
+|                 |                 |                 |      regenerate |
 |                 |                 |                 |      numerical  |
 |                 |                 |                 |      URLs on    |
 |                 |                 |                 |      every tab  |
-|                 |                 |                 |    | switch.    |
+|                 |                 |                 |      switch.    |
 +-----------------+-----------------+-----------------+-----------------+
 
 ..
@@ -125,31 +125,31 @@
 |    **Title**    |                 |    **Priority** |                 |
 |                 | **Description** |                 |  **Resolution** |
 +=================+=================+=================+=================+
-|    **Mobile     |    | 2.5D       |    Medium       |    | Implement  |
+|    **Mobile     |      2.5D       |    Medium       |      Implement  |
 |    Perf.**      |      engine     |                 |      an         |
-|                 |                 |                 |    | "Adaptive  |
-|                 |   | performance |                 |      Layout"    |
-|                 |      on low-end |                 |      engine     |
-|                 |      mobile     |                 |      that       |
-|                 |      devices is |                 |      scales     |
+|                 |    performance  |                 |      "Adaptive  |
+|                 |    on low-end   |                 |      Layout"    |
+|                 |     mobile      |                 |      engine     |
+|                 |    devices is   |                 |      that       |
+|                 |    sub-optimal. |                 |      scales     |
 |                 |                 |                 |      visual     |
-|                 |  | sub-optimal. |                 |      depth      |
+|                 |                 |                 |      depth      |
 |                 |                 |                 |      based on   |
 |                 |                 |                 |      hardware.  |
 +-----------------+-----------------+-----------------+-----------------+
-|    **URL        |    | Random URL |    Low          |    | Optimize   |
-|    Refresh**    |    | Generation |                 |      the        |
-|                 |      creates    |                 |    | s          |
-|                 |      excessive  |                 | tate-management |
-|                 |      page       |                 |      logic to   |
-|                 |    | refresh    |                 |      update     |
-|                 |      overhead.  |                 |    | numerical  |
-|                 |                 |                 |      strings    |
+|    **URL        |      Random URL |    Low          |     Optimize    |
+|    Refresh**    |      Generation |                 |      the        |
+|                 |      creates    |                 | state-management|
+|                 |      excessive  |                 |      logic to   |
+|                 |      page       |                 |      update     |
+|                 |      refresh    |                 |      numerical  |
+|                 |      overhead.  |                 |      strings    |
 |                 |                 |                 |      without    |
 |                 |                 |                 |      full DOM   |
-|                 |                 |                 |    | reloads.   |
+|                 |                 |                 |      reloads.   |
+|                 |                 |                 |                 |
 +-----------------+-----------------+-----------------+-----------------+
-|    **Hash       |    PhotoDNA     |    High         |    | Distribute |
+|    **Hash       |    PhotoDNA     |    High         |      Distribute |
 |    Overhead**   |    hashing      |                 |      hashing    |
 |                 |    requires     |                 |      tasks      |
 |                 |    significant  |                 |      across the |
@@ -185,8 +185,8 @@
 +-----------------------+-----------------------+-----------------------+
 |    **Phase**          |    **Deliverable**    |    **Estimate**       |
 +=======================+=======================+=======================+
-|    **Phase 1:         |    | Deployment of    |    3 Months           |
-|    Foundation**       |    | IPFS/Openmesh    |                       |
+|    **Phase 1:         |      Deployment of    |    3 Months           |
+|    Foundation**       |      IPFS/Openmesh    |                       |
 |                       |      nodes,           |                       |
 |                       |      implementation   |                       |
 |                       |      of SDH           |                       |
@@ -195,26 +195,26 @@
 +-----------------------+-----------------------+-----------------------+
 |    **Phase**          |    **Deliverable**    |    **Estimate**       |
 +=======================+=======================+=======================+
-|                       |    | protocol, and    |                       |
+|                       |      protocol, and    |                       |
 |                       |      E2EE             |                       |
-|                       |    | subsystem for    |                       |
+|                       |      subsystem for    |                       |
 |                       |      Key-Codes.       |                       |
 +-----------------------+-----------------------+-----------------------+
-|    **Phase 2: GUI     |    | 2.5D             |    4 Months           |
+|    **Phase 2: GUI     |      2.5D             |    4 Months           |
 |    Engine**           |      visualization    |                       |
 |                       |      core,            |                       |
-|                       |    | Guild/Homespace  |                       |
-|                       |    | architecture,    |                       |
+|                       |      Guild/Homespace  |                       |
+|                       |      architecture,    |                       |
 |                       |      and 2.5D tabbed  |                       |
 |                       |      interface with   |                       |
 |                       |      depth effects.   |                       |
 +-----------------------+-----------------------+-----------------------+
-|    **Phase 3: Guild   |    | Auto-socket      |    3 Months           |
+|    **Phase 3: Guild   |      Auto-socket      |    3 Months           |
 |    Topology**         |      clustering,      |                       |
-|                       |    | WebSocket/REST   |                       |
-|                       |    | standardization, |                       |
+|                       |      WebSocket/REST   |                       |
+|                       |      standardization, |                       |
 |                       |      and              |                       |
-|                       |    | DM/Group chat    |                       |
+|                       |      DM/Group chat    |                       |
 |                       |      infrastructure.  |                       |
 +-----------------------+-----------------------+-----------------------+
 |    **Phase 4:         |    Mass UI            |    3 Months           |
@@ -226,24 +226,24 @@
 |                       |    and Translation    |                       |
 |                       |    engine.            |                       |
 +-----------------------+-----------------------+-----------------------+
-|    **Phase 5: Beta    |    | Closed Alpha     |    2 Months           |
+|    **Phase 5: Beta    |      Closed Alpha     |    2 Months           |
 |    Testing**          |      stress tests,    |                       |
-|                       |    | Darknet Sandbox  |                       |
+|                       |      Darknet Sandbox  |                       |
 |                       |      testing,         |                       |
-|                       |    | Cross-browser    |                       |
+|                       |      Cross-browser    |                       |
 |                       |      validation, and  |                       |
 |                       |      Automod/XGBoost  |                       |
 |                       |      dry-runs.        |                       |
 +-----------------------+-----------------------+-----------------------+
-|    **Phase 6:         |    | Activation of    |    2 Months           |
+|    **Phase 6:         |      Activation of    |    2 Months           |
 |    Governance**       |      Hybrid Expert    |                       |
 |                       |      System, Random   |                       |
 |                       |      URL              |                       |
-|                       |    | hardening, Audit |                       |
+|                       |      hardening, Audit |                       |
 |                       |      Trail            |                       |
-|                       |    | integration, and |                       |
+|                       |      integration, and |                       |
 |                       |      Final            |                       |
-|                       |    | Publicization.   |                       |
+|                       |      Publicization.   |                       |
 +-----------------------+-----------------------+-----------------------+
 
 ..
