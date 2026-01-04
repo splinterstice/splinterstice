@@ -35,8 +35,8 @@
    ○​ **Security:** E2EE refinement, Tor/I2P tunnel optimization, and
    WAPP hardening.
 
-|  ○​ **Plugin Devs:** Development of interactable 2.5D objects and
-   multimedia preview handlers.
+   ○​ **Plugin Devs:** Development of interactable 2.5D objects and
+|  multimedia preview handlers.
 
 ..
 
