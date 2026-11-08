@@ -298,7 +298,7 @@
 
 ..
 
-   7. Notes on Estimates
+   [Notes on Estimates]
 
    Estimates are based on current open-source contributor velocity. The
    decentralized nature of the socket clusters and IPFS integration may
